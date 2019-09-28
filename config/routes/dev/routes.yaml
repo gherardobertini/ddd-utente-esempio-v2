@@ -1,0 +1,5 @@
+ddd_utente_utente:
+  resource: '../ddd_utente/v1/utente.yml'
+  prefix: /v1
+  defaults:
+    _format: json

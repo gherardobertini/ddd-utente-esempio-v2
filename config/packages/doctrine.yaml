@@ -1,0 +1,27 @@
+doctrine:
+  dbal:
+    # configure these for your database server
+    driver: 'pdo_mysql'
+    server_version: '5.7'
+    charset: utf8
+    default_table_options:
+      charset: utf8
+      collate: utf8_general_ci
+    url: '%env(resolve:DATABASE_URL)%'
+    types:
+      IdUtente: UtenteDDD\Utente\Infrastructure\Domain\Aggregate\Doctrine\DoctrineIdUtente
+      EmailUtente: UtenteDDD\Utente\Infrastructure\Domain\Aggregate\Doctrine\DoctrineEmailUtente
+      HashedPassword: UtenteDDD\Utente\Infrastructure\Domain\Aggregate\Doctrine\DoctrineHashedPassword
+      Ruolo: UtenteDDD\Utente\Infrastructure\Domain\Aggregate\Doctrine\DoctrineRuolo
+  orm:
+    auto_generate_proxy_classes: '%kernel.debug%'
+    #    naming_strategy: doctrine.orm.naming_strategy.underscore
+    #    auto_mapping: true
+    entity_managers:
+      default:
+        mappings:
+          Utente:
+            is_bundle: false
+            type: yml
+            dir: "%kernel.project_dir%/src/UtenteDDD/Utente/Infrastructure/Domain/Aggregate/Doctrine/Persistence/Mapping"
+            prefix: 'UtenteDDD\Utente\Domain'

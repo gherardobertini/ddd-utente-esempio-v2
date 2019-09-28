@@ -1,0 +1,22 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  UtenteDDD\Utente\Domain\Aggregate\Utenti:
+    class: UtenteDDD\Utente\Infrastructure\Domain\Aggregate\Doctrine\DoctrineUtenti
+    arguments:
+      - '@doctrine'
+      - 'UtenteDDD\Utente\Domain\Aggregate\Utente'
+    public: true
+
+
+  UtenteDDD\Utente\Application\Service\RegistraUtenteFromRequest:
+    arguments:
+      $dataTransformer: '@UtenteDDD\Utente\Application\DataTransformer\UtenteArrayDataTransformer'
+    public: true
+
+  UtenteDDD\Utente\Application\DataTransformer\:
+    resource: '%kernel.project_dir%/src/UtenteDDD/Utente/Application/DataTransformer/*'
+    public: true

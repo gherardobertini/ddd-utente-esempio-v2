@@ -1,0 +1,6 @@
+signup_utente:
+  path: /utente
+  controller: UtenteDDD\Utente\Infrastructure\Communication\Http\Symfony\Controller\UtenteController::signupUtente
+  methods: [POST]
+  requirements:
+    _format: json|html

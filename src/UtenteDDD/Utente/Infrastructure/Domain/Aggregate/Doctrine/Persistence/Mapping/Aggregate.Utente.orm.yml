@@ -1,0 +1,24 @@
+UtenteDDD\Utente\Domain\Aggregate\Utente:
+  type: entity
+  table: utenti
+  id:
+    idUtente:
+      type: IdUtente
+      column: id
+
+  fields:
+    email:
+      type: EmailUtente
+      nullable: false
+    password:
+      type: HashedPassword
+      nullable: false
+    ruolo:
+      type: Ruolo
+      nullable: false
+    enabled:
+      type: boolean
+      nullable: false
+    locked:
+      type: boolean
+      nullable: false

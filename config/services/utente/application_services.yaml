@@ -1,0 +1,9 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  UtenteDDD\Utente\Application\Service\RegistraUtenteFromRequest:
+    arguments:
+      $dataTransformer: '@UtenteDDD\Utente\Application\DataTransformer\UtenteArrayDataTransformer'
