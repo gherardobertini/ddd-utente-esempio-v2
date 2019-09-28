@@ -11,7 +11,6 @@ services:
       - 'UtenteDDD\Utente\Domain\Aggregate\Utente'
     public: true
 
-
   UtenteDDD\Utente\Application\Service\RegistraUtenteFromRequest:
     arguments:
       $dataTransformer: '@UtenteDDD\Utente\Application\DataTransformer\UtenteArrayDataTransformer'

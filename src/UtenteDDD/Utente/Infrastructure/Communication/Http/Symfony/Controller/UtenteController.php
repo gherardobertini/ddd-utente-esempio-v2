@@ -9,7 +9,7 @@ use UtenteDDD\Utente\Application\Service\RegistraUtenteFromRequestRequest;
 
 class UtenteController extends DDDUtenteController
 {
-   public function signUpUtente(Request $request, RegistraUtenteFromRequest $service)
+   public function registraUtente(Request $request, RegistraUtenteFromRequest $service)
    {
       $content = json_decode($request->getContent(), true);
 
@@ -17,7 +17,7 @@ class UtenteController extends DDDUtenteController
          $content['email'],
          $content['password'],
          $content['ruolo'],
-         true
+         false
       ));
    }
 }

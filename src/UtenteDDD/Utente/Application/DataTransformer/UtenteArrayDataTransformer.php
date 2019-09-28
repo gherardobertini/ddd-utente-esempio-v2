@@ -14,7 +14,7 @@ class UtenteArrayDataTransformer implements DataTransformer
    public function read()
    {
       return [
-         'email' => $this->utente->email(),
+         'email' => (string)$this->utente->email(),
          'id' => $this->utente->id()->id(),
          'ruolo' => (string)$this->utente->ruolo(),
          'enabled' => $this->utente->isEnabled(),

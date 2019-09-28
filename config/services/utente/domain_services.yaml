@@ -2,7 +2,6 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
-    public: false
 
   UtenteDDD\Utente\Domain\Service\:
     resource: '%kernel.project_dir%/src/UtenteDDD/Utente/Domain/Service/*'

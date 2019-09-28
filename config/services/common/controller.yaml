@@ -1,0 +1,10 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  UtenteDDD\Common\Infrastructure\Communication\Http\Symfony\Controller\:
+    resource: '%kernel.project_dir%/src/UtenteDDD/Common/Infrastructure/Communication/Http/Symfony/Controller/*'
+    tags: ['controller.service_arguments']
