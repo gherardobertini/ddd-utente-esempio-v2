@@ -51,7 +51,11 @@ class RegistraUtenteTest extends TestCase
       $utente = $this->registraUtente->crea(
          'user@dominio.it',
          'secure_psw',
-         'admin'
+         'admin',
+         [
+            'raccogli foglie',
+            'raccogli aghi di pino'
+         ]
       );
 
       $this->assertInstanceOf(Utente::class, $utente);

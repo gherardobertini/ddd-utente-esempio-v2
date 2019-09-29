@@ -3,7 +3,7 @@
 namespace UtenteDDD\Utente\Application\DataTransformer;
 
 use DDDStarterPack\Application\DataTransformer\DataTransformer;
-use UtenteDDD\Competenza\Domain\Aggregate\Competenza;
+use UtenteDDD\Utente\Domain\Aggregate\Competenza;
 use UtenteDDD\Utente\Domain\Aggregate\Utente;
 
 class UtenteArrayDataTransformer implements DataTransformer

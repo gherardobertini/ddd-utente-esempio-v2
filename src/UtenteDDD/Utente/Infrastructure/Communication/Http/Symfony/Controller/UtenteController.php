@@ -13,11 +13,14 @@ class UtenteController extends DDDUtenteController
    {
       $content = json_decode($request->getContent(), true);
 
+      $competenze = isset($content['competenze']) ? $content['competenze'] : [];
+
       return $this->executeService($service, new RegistraUtenteFromRequestRequest(
          $content['email'],
          $content['password'],
          $content['ruolo'],
-         false
+         false,
+         $competenze
       ));
    }
 }

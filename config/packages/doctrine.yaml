@@ -10,6 +10,7 @@ doctrine:
     url: '%env(resolve:DATABASE_URL)%'
     types:
       IdUtente: UtenteDDD\Utente\Infrastructure\Domain\Aggregate\Doctrine\DoctrineIdUtente
+      IdCompetenza: UtenteDDD\Utente\Infrastructure\Domain\Aggregate\Doctrine\DoctrineIdCompetenza
       EmailUtente: UtenteDDD\Utente\Infrastructure\Domain\Aggregate\Doctrine\DoctrineEmailUtente
       HashedPassword: UtenteDDD\Utente\Infrastructure\Domain\Aggregate\Doctrine\DoctrineHashedPassword
       Ruolo: UtenteDDD\Utente\Infrastructure\Domain\Aggregate\Doctrine\DoctrineRuolo

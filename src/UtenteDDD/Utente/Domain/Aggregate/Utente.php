@@ -5,8 +5,6 @@ namespace UtenteDDD\Utente\Domain\Aggregate;
 use ArrayObject;
 use DDDStarterPack\Domain\Aggregate\IdentifiableDomainObject;
 use Doctrine\Common\Collections\ArrayCollection;
-use UtenteDDD\Competenza\Domain\Aggregate\Competenza;
-use UtenteDDD\Competenza\Domain\Aggregate\CompetenzaId;
 use UtenteDDD\Ruolo\Domain\Aggregate\Ruolo;
 use UtenteDDD\Utente\Domain\Aggregate\Password\HashedPassword;
 
@@ -16,7 +14,7 @@ class Utente implements IdentifiableDomainObject
    private $email;
    private $password;
    private $ruolo;
-   private $enabled = false; // Per il primo accesso
+   private $enabled = false;
    private $locked = false;
 
    private $competenze;
@@ -41,18 +39,21 @@ class Utente implements IdentifiableDomainObject
       );
 
       foreach ($competenze as $competenza) {
-
-         $utente->addCompetenza($competenza);
+         $utente->aggiungiCompetenza($competenza);
       }
 
       return $utente;
    }
 
-   public function addCompetenza($name): void
+   public function aggiungiCompetenza(string $nomeCompetenza): void
    {
-      $this->competenze->add(
-         new Competenza(CompetenzaId::create(), $name, $this->idUtente)
-      );
+      $exists = $this->competenze->exists(function (int $i, Competenza $competenza) use ($nomeCompetenza) {
+         return $competenza->nome() == $nomeCompetenza;
+      });
+
+      if (!$exists) {
+         $this->competenze->add(new Competenza(IdCompetenza::create(), $nomeCompetenza, $this));
+      }
    }
 
    public function competenze(): ArrayObject

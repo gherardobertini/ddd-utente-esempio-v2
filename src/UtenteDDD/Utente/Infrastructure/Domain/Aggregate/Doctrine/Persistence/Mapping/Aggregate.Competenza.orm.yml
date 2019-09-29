@@ -1,0 +1,12 @@
+UtenteDDD\Utente\Domain\Aggregate\Competenza:
+  type: entity
+  table: competenze
+  id:
+    idCompetenza:
+      type: IdCompetenza
+      column: id
+  fields:
+    nome:
+      type: string
+      nullable: false
+

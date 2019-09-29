@@ -20,12 +20,10 @@ abstract class CreaUtente
 
    /** @var array */
    protected $competenze;
+
    /** @var string */
-
    protected $ruolo;
-
    protected $utenti;
-
    private $passwordHashing;
 
    public function __construct(Utenti $utenti, PasswordHashing $passwordHashing)
@@ -37,7 +35,7 @@ abstract class CreaUtente
    public function crea(string $email, string $password, string $ruolo, array $competenze = [], bool $enabled = false): Utente
    {
       // Specification pattern
-      $this->checkEmailIsUnique(EmailUtente::crea($email));
+      $this->emailIsUnique(EmailUtente::crea($email));
 
       $this->hashedPassword = $this->passwordHashing->hash(
          new NotHashedPassword($password)
@@ -56,7 +54,7 @@ abstract class CreaUtente
       return $utente;
    }
 
-   private function checkEmailIsUnique(EmailUtente $email): void
+   private function emailIsUnique(EmailUtente $email): void
    {
       $specification = new EmailUtenteUnica($this->utenti);
 
