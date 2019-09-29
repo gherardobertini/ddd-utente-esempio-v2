@@ -26,7 +26,7 @@ $./dc enter
 * `memflush` è un alias a `echo \"flush_all\" | nc servicememcached 11211 -q 1"` per svuotare memcached
 
 
-##API
+## API
 
 Creazione utente:
 
