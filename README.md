@@ -24,3 +24,23 @@ $./dc enter
 * `sf` è un alias a `bin/console` per usare la console di Symfony
 * `sfcc` è un alias a `rm -Rf var/cache/*` per svuotare la cache
 * `memflush` è un alias a `echo \"flush_all\" | nc servicememcached 11211 -q 1"` per svuotare memcached
+
+
+##API
+
+Creazione utente:
+
+`POST http://localhost:8080/v1/utente`
+
+Payload:
+```json
+{
+	"email":"pinco2@email.it",
+	"password":"verde",
+	"ruolo":"admin",
+	"competenze":          [
+            "raccogli foglie",
+            "raccogli aghi di pino"
+         ]
+}
+```

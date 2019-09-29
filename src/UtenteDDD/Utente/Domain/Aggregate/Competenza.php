@@ -6,17 +6,23 @@ class Competenza
 {
    private $idCompetenza;
    private $nome;
-   private $utente;
 
-   public function __construct(IdCompetenza $idCompetenza, string $nome, Utente $utente)
+   public function __construct(IdCompetenza $idCompetenza, string $nome)
    {
       $this->idCompetenza = $idCompetenza;
       $this->nome = $nome;
-      $this->utente = $utente;
    }
 
    public function nome(): string
    {
       return $this->nome;
+   }
+
+   public function array(): array
+   {
+      return [
+         'id' => (string)$this->idCompetenza,
+         'nome' => $this->nome
+      ];
    }
 }

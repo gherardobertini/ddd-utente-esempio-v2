@@ -52,7 +52,7 @@ class Utente implements IdentifiableDomainObject
       });
 
       if (!$exists) {
-         $this->competenze->add(new Competenza(IdCompetenza::create(), $nomeCompetenza, $this));
+         $this->competenze->add(new Competenza(IdCompetenza::create(), $nomeCompetenza));
       }
    }
 
